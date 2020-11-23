@@ -1,0 +1,132 @@
+.auth__main {
+  align-items: center;
+  background-color: $primary;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  margin: 0px;
+  height: 100vh;
+  width: 100vw;
+
+  .auth__background-waves {
+    position: absolute;
+    width: 125%;
+    z-index: 0;
+    padding-bottom: 200px;
+    bottom: 0;
+
+    .auth__wave1 {
+      bottom: 0;
+      position: absolute;
+      animation: waving;
+      animation-duration: 20s;
+      filter: blur(20%);
+      z-index: 5;
+      filter: brightness(75%);
+      animation-iteration-count: infinite;
+    }
+
+    .auth__wave2 {
+      position: absolute;
+      animation: waving;
+      animation-direction: reverse;
+      animation-duration: 20s;
+      bottom: 0;
+      filter: blur(20%);
+      animation-iteration-count: infinite;
+    }
+  }
+
+  .auth__form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $white;
+    z-index: 10;
+    padding: 40px;
+    border-radius: 8px;
+  }
+
+  .auth__title {
+    color: $white;
+    margin-bottom: 20px;
+  }
+
+  .auth__input {
+    color: lighten($color: $dark-grey, $amount: 80);
+    border: 0px;
+    border-bottom: 1px solid $light-grey;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    height: 20px;
+    width: 100%;
+    padding: 10px;
+    background: none;
+
+    transition: border-bottom 0.6s ease;
+
+    &:focus {
+      border-bottom: 1px solid $dark-grey;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $white;
+      opacity: 20%;
+    }
+  }
+
+  .auth__social-networks {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0;
+    width: 50%;
+  }
+
+  .auth__alert-error {
+    background-color: rgb(165, 6, 6);
+    border-radius: 5px;
+    color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .auth__not-account {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+
+    p {
+      margin-bottom: 10px;
+      color: $white;
+      font-size: 0.9em;
+    }
+
+    a {
+      color: darken($color: $white, $amount: 20);
+    }
+  }
+}
+
+@keyframes waving {
+  25% {
+    transform: translateX(10%);
+  }
+  50% {
+    transform: translateX(-10%);
+  }
+  75% {
+    transform: translateX(10%);
+  }
+}
