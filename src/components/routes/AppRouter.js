@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Redirect, Switch } from "react-router-dom";
 import { login } from "../../actions/auth";
+import { Footer } from "../footer/Footer";
 
 //Components
 import { Landing } from "../landing/Landing";
@@ -29,26 +30,29 @@ export const AppRouter = () => {
   }, [dispatch, setIsLogged]);
 
   return (
-    <div className="auth__main">
-      <BrowserRouter>
-        <Switch>
-          <PublicRoutes
-            exact
-            path="/"
-            isLogged={isLogged}
-            component={Landing}
-          />
+    <>
+      <div className="auth__main">
+        <BrowserRouter>
+          <Switch>
+            <PublicRoutes
+              exact
+              path="/"
+              isLogged={isLogged}
+              component={Landing}
+            />
 
-          <PrivateRoutes
-            exact
-            path="/auth"
-            isLogged={isLogged}
-            component={AuthRouter}
-          />
+            <PrivateRoutes
+              exact
+              path="/auth"
+              isLogged={isLogged}
+              component={AuthRouter}
+            />
 
-          <Redirect to="/auth" />
-        </Switch>
-      </BrowserRouter>
-    </div>
+            <Redirect to="/auth" />
+          </Switch>
+        </BrowserRouter>
+      </div>
+      <Footer />
+    </>
   );
 };

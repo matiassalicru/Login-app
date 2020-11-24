@@ -1,0 +1,19 @@
+.footer__container {
+    z-index: 999;
+    bottom: 0;
+    background: #d49fe9;
+    height: 5vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p{
+        color: $white;
+
+        a{
+            color: #000000;
+            font-style: italic;
+        }
+    }
+}
