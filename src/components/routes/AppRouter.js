@@ -1,29 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { BrowserRouter, Redirect, Switch } from "react-router-dom";
+import { login } from "../../actions/auth";
 
 //Components
 import { Landing } from "../landing/Landing";
 import { AuthRouter } from "./AuthRouter";
 import { PrivateRoutes } from "./PrivateRoutes";
 import { PublicRoutes } from "./PublicRoutes";
+import { firebase } from "../../firebase/FirebaseConfig";
 
 export const AppRouter = () => {
   const [isLogged, setIsLogged] = useState(false);
 
-  const state = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (state?.uid) {
-      setIsLogged(true);
-    } else {
-      setIsLogged(false);
-    }
-  }, [state]);
-
-  console.log(state);
-
-  console.log(isLogged);
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user?.uid) {
+        dispatch(login(user.uid, user.displayName));
+        setIsLogged(true);
+        // console.log("logueado");
+      } else {
+        setIsLogged(false);
+        // console.log("deslogueado");
+      }
+    });
+  }, [dispatch, setIsLogged]);
 
   return (
     <div className="auth__main">

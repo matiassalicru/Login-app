@@ -12,6 +12,11 @@
 
     .land__title{
         color: $white;
+
+        span{
+            color: tomato;
+            font-style: italic;
+        }
     }
 
     .land__subtitle{

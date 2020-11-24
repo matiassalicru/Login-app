@@ -16,6 +16,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^10.1.0",
+    "validator": "^13.1.17",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

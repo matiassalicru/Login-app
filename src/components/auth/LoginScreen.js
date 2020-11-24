@@ -1,7 +1,8 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { startGoogleLogin } from "../../actions/auth";
+import { logInWithEmailAndPassword, startGoogleLogin } from "../../actions/auth";
+import { removeError } from "../../actions/ui";
 
 import wave from "../../assets/wave.svg";
 import wave2 from "../../assets/wave2.svg";
@@ -11,9 +12,11 @@ export const LoginScreen = () => {
 
   const dispatch = useDispatch();
 
+  const {ui} = useSelector( state => state);
+
   const [formValues, handleInputChange] = useForm({
-    email: "pepito@gmail.com",
-    password: 1234,
+    email: '',
+    password: '',
   });
 
   const { email, password } = formValues;
@@ -21,14 +24,16 @@ export const LoginScreen = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // dispatch( login(email, password) );
+    dispatch( logInWithEmailAndPassword(email, password) );
+    console.log('se loguo');
   };
 
   const handleLoginWithGoogle = () => {
-    console.log('google login');
-
     dispatch( startGoogleLogin() )
+  }
 
+  const handleChangeView = () => {
+    dispatch( removeError() )
   }
 
   return (
@@ -39,6 +44,15 @@ export const LoginScreen = () => {
         autoComplete="new-password"
       >
         <h1 className="auth__title">Sign in into your account</h1>
+
+        {
+          ui.error ?
+          <small className='auth__alert-error'>
+            {ui.msg}
+          </small>
+          : null
+        }
+
         <input
           className="auth__input"
           type="text"
@@ -84,7 +98,7 @@ export const LoginScreen = () => {
         <div className="auth__not-account">
           <p>Don't have an account?</p>
 
-          <Link to="/auth/register">Create an account</Link>
+          <Link to="/auth/register" onClick={handleChangeView}>Create an account</Link>
         </div>
       </form>
 
