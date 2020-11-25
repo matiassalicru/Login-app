@@ -115,7 +115,9 @@
     }
 
     a {
-      color: darken($color: $white, $amount: 20);
+      color: darken($color: $white, $amount: 0);
+      color: $white;
+      font-weight: 600;
     }
   }
 }

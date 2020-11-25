@@ -85,7 +85,7 @@ export const RegisterScreen = () => {
           value={password}
           onChange={handleInputChange}
         />
-        <button className="btn" type="submit">
+        <button className="btn" type="submit" disabled={ui.loading}>
           Sign up
         </button>
 

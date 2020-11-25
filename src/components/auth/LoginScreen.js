@@ -71,7 +71,7 @@ export const LoginScreen = () => {
           name="password"
           onChange={handleInputChange}
         />
-        <button className="btn" type="submit">
+        <button className="btn" type="submit" disabled={ui.loading}>
           Login
         </button>
 

@@ -1,8 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../../actions/auth";
-import wave from "../../assets/wave.svg";
-import wave2 from "../../assets/wave2.svg";
 import Lottie from "react-lottie";
 import animationData from "../../assets/hacker.json";
 
@@ -40,7 +38,7 @@ export const Landing = () => {
         <div className="land__center">
         <Lottie options={defaultOptions} height={400} width={400} />
         <h2 className="land__center-subtitle">
-          This is you right now
+          This could be you right now
         </h2>
 
         </div>

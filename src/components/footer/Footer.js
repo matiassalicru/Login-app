@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer className="footer__container">
       <p>
         Made with ❤ by {" "}
-        <a href="twitter.com/matiassalicru">@matiassalicru</a>
+        <a href="https://twitter.com/matiassalicru">@matiassalicru</a>
       </p>
     </footer>
   );

@@ -61,6 +61,11 @@
     box-shadow: 2px 2px 5px $white;
   }
 
+  &:disabled{
+    background-color: #d49fe9;
+    cursor: not-allowed;
+  }
+
 }
 
 
