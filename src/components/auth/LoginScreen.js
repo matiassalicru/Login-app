@@ -1,7 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { logInWithEmailAndPassword, startGoogleLogin } from "../../actions/auth";
+import {
+  logInWithEmailAndPassword,
+  startGoogleLogin,
+} from "../../actions/auth";
 import { removeError } from "../../actions/ui";
 
 import wave from "../../assets/wave.svg";
@@ -9,32 +12,31 @@ import wave2 from "../../assets/wave2.svg";
 import { useForm } from "../../hooks/useForm";
 
 export const LoginScreen = () => {
-
   const dispatch = useDispatch();
 
-  const {ui} = useSelector( state => state);
+  const { ui } = useSelector((state) => state);
 
   const [formValues, handleInputChange] = useForm({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const { email, password } = formValues;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    dispatch( logInWithEmailAndPassword(email, password) );
-    console.log('se loguo');
+
+    dispatch(logInWithEmailAndPassword(email, password));
+    console.log("se loguo");
   };
 
   const handleLoginWithGoogle = () => {
-    dispatch( startGoogleLogin() )
-  }
+    dispatch(startGoogleLogin());
+  };
 
   const handleChangeView = () => {
-    dispatch( removeError() )
-  }
+    dispatch(removeError());
+  };
 
   return (
     <>
@@ -45,28 +47,26 @@ export const LoginScreen = () => {
       >
         <h1 className="auth__title">Sign in into your account</h1>
 
-        {
-          ui.error ?
-          <small className='auth__alert-error'>
-            {ui.msg}
-          </small>
-          : null
-        }
+        {ui.error ? (
+          <small className="auth__alert-error">{ui.msg}</small>
+        ) : null}
 
+        <label className="auth__label"> Email</label>
         <input
           className="auth__input"
           type="text"
-          placeholder="Email"
+          // placeholder="Email"
           value={email}
           autoComplete="naaa"
           name="email"
           onChange={handleInputChange}
         />
+        <label className="auth__label"> Password</label>
 
         <input
           className="auth__input"
           type="password"
-          placeholder="Password"
+          // placeholder="Password"
           value={password}
           name="password"
           onChange={handleInputChange}
@@ -98,7 +98,9 @@ export const LoginScreen = () => {
         <div className="auth__not-account">
           <p>Don't have an account?</p>
 
-          <Link to="/auth/register" onClick={handleChangeView}>Create an account</Link>
+          <Link to="/auth/register" onClick={handleChangeView}>
+            Create an account
+          </Link>
         </div>
       </form>
 

@@ -66,6 +66,8 @@
     height: 20px;
     width: 100%;
     padding: 10px;
+    padding-bottom: 0;
+    padding-left: 0;
     background: none;
 
     transition: border-bottom 0.6s ease;
@@ -119,6 +121,14 @@
       color: $white;
       font-weight: 600;
     }
+  }
+
+  .auth__label{
+    color: $white;
+    align-self: flex-start;
+    text-decoration: underline;
+    margin-top: 20px;
+    // margin-left: -10px;
   }
 }
 

@@ -57,30 +57,33 @@ export const RegisterScreen = () => {
           <small className="auth__alert-error">{ui.msg}</small>
         ) : null}
 
+        <label className="auth__label"> Full Name</label>
         <input
           className="auth__input"
           type="text"
-          placeholder="Full Name"
+          // placeholder="Full Name"
           autoComplete="naaa"
           name="name"
           value={name}
           onChange={handleInputChange}
         />
+        <label className="auth__label"> Email</label>
 
         <input
           className="auth__input"
           type="text"
-          placeholder="Email"
+          // placeholder="Email"
           autoComplete="naaa"
           name="email"
           value={email}
           onChange={handleInputChange}
         />
+        <label className="auth__label"> Create a password</label>
 
         <input
           className="auth__input"
           type="password"
-          placeholder="Password"
+          // placeholder="Password"
           name="password"
           value={password}
           onChange={handleInputChange}
