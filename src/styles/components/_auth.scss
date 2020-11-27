@@ -123,12 +123,41 @@
     }
   }
 
-  .auth__label{
+  .auth__label {
     color: $white;
     align-self: flex-start;
     text-decoration: underline;
     margin-top: 20px;
     // margin-left: -10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .auth__main {
+  height: 97vh;
+    width: 100%;
+  }
+
+  .auth__form {
+    width: 100px;
+    max-width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $white;
+    z-index: 10;
+    padding: 30px;
+    border-radius: 8px;
+  }
+
+  .auth__title {
+    font-size: 1em;
+  }
+
+  .auth__input{
+    font-size: 1rem;
+
   }
 }
 

@@ -42,47 +42,54 @@
   }
 }
 
-
-.btn{
+.btn {
   padding: 10px 40px;
   border: 1px solid $white;
   border-radius: 7px;
   background: none;
   cursor: pointer;
   color: $white;
-  transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   animation: btnwave;
   animation-iteration-count: infinite;
   animation-duration: 1.5s;
   animation-timing-function: ease-in;
 
-
-  &:hover{
+  &:hover {
     box-shadow: 2px 2px 5px $white;
   }
 
-  &:disabled{
+  &:disabled {
     background-color: #d49fe9;
     cursor: not-allowed;
   }
-
 }
 
-
 @keyframes btnwave {
-  0%{
+  0% {
     border-radius: 5px;
   }
-  25%{
+  25% {
     border-radius: 10px;
   }
-  50%{
+  50% {
     border-radius: 15px;
   }
-  75%{
+  75% {
     border-radius: 10px;
   }
-  100%{
+  100% {
     border-radius: 5px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .google-btn {
+    width: 250%;
+  }
+
+  .btn{
+    margin-bottom: 20px;
+    font-weight: 600;
   }
 }
